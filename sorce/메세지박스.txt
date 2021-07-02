@@ -1,0 +1,8 @@
+from tkinter import messagebox
+messagebox.showinfo("메세지 상자", "정보 제공하는 메세지 상자")
+messagebox.showwarning("메세지 상자", "노란색 느낌표 아이콘 상자")
+messagebox.showerror("메세지 상자", "빨간 엑스 아이콘 상자")
+messagebox.askquestion("메세지 상자", "파란 물음표 아이콘 상자")
+messagebox.askokcancel("메세지 상자", "ok와 cancle 중 선택")
+messagebox.askyesno("메세지 상자", "yes와 no 중 선택.")
+messagebox.askretrycancel("메세지 상자", "재시도와 취소 중 선택.")

@@ -1,0 +1,17 @@
+from tkinter import *
+from tkinter import messagebox
+
+ws = Tk()
+ws.title('알림창 만들기')
+ws.geometry('250x200')
+
+def helloMsg(name):
+    name = textBox_name.get()
+    return messagebox.showinfo('hello message', f'{name}, tkinter 알림이야' )
+
+Label(ws, text='이름을 넣고 enter 키를 누르세요').pack(pady=20)
+textBox_name = Entry(ws)
+textBox_name.bind('<Return>', helloMsg)
+textBox_name.pack()
+
+ws.mainloop()

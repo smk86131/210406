@@ -1,0 +1,31 @@
+import tkinter as tk
+
+OptionList = [
+"봄",
+"여름",
+"가을",
+"겨울"
+] 
+
+app = tk.Tk()
+
+app.geometry('200x200')
+app.title("select")
+variable = tk.StringVar(app)
+variable.set(OptionList[0])
+
+opt = tk.OptionMenu(app, variable, *OptionList)
+opt.config(width=15, font=('Noto Sans KR', 12))
+opt.place(x = 10, y = 20)
+
+
+labelTest = tk.Label(text="", font=('Noto Sans KR', 12), fg='black')
+#labelTest.pack(side="bottom")
+labelTest.place(x = 40, y = 60)
+
+def callback(*args):
+    labelTest.configure(text="지금은 {}입니다".format(variable.get()))
+
+variable.trace("w", callback)
+
+app.mainloop()

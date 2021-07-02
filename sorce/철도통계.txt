@@ -1,0 +1,22 @@
+import requests
+from bs4 import BeautifulSoup
+
+
+url = "http://www.kric.go.kr/jsp/industry/rss/citystapassList.jsp?q_org_cd=A010010024&q_fdate=2021"
+htmlText = requests.get(url).text
+bsoup = BeautifulSoup(htmlText, "html.parser")
+btab = bsoup.find("table",{"class":"listtbl_c100"} )
+btrs = btab.find("tbody").find_all("tr")
+btdcols = btrs[1].find_all("td", {"class" : "tdcol"})
+btds = btrs[1].find_all("td")
+
+passengers = []
+
+for tr in btrs[1:] :
+    dic = {}
+    tds = tr.find_all("td")
+    dic['station'] = tds[0].text
+    dic['ride'] = tds[2].text
+    dic['alight'] = tds[3].text
+    passengers.append(dic)
+    
